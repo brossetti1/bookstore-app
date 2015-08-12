@@ -47,7 +47,17 @@ RSpec.describe AuthorsController, :type => :controller do
     end
 
     context "an unsuccessful create" do
+      it "does not save the author object with invalid inputs" do
+        post :create, author: Fabricate.attributes_for(:author, first_name: nil)
 
+        expect(Author.count).to eq(0)
+      end
+
+      it "sets the failure flash message" do
+        post :create, author: Fabricate.attributes_for(:author, first_name: nil)
+
+        expect(flash[:danger]).to eq("Author has not been created")
+      end
     end
   end
 end
