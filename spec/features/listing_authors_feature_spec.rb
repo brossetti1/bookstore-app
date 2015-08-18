@@ -22,4 +22,22 @@ RSpec.feature 'Listing Authors' do
       expect(page).to have_content('Mary Grant')
     end
   end
+
+  scenario 'with none created' do
+    Author.delete_all
+
+    visit root_path
+
+    click_link 'Authors'
+
+    expect(Author.count).to eq(0)
+
+    within('.page-header') do
+      expect(page).to have_content('No Authors Created')
+    end
+
+    within('#new-author-link') do
+      expect(page).to have_link('Add New author')
+    end
+  end
 end
