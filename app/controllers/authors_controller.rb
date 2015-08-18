@@ -2,7 +2,7 @@ class AuthorsController < ApplicationController
   before_action :set_author, except: [:index, :new, :create]
 
   def index
-    @authors = Author.all 
+    @authors = Author.all
   end
 
   def show

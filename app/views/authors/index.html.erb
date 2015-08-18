@@ -1,1 +1,21 @@
-<%= link_to "Add New author", new_author_path %>
+<div class="row">
+  <div id="new-author-link" class="col-md-12">
+    <%= link_to "Add New author", new_author_path, class: "btn btn-success btn-lg" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="page-header col-md-12">
+    <h1>All Authors</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div id="authors-list">
+    <% @authors.each do |author| %>
+      <div class="well col-md-12">
+        <%= author.full_name %>
+      </div>
+    <% end %>
+  </div>ß  
+</div>
