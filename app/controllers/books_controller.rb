@@ -10,7 +10,7 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
-    # @book.publications.build
+    #@book.publications.build
     #
     # @publishers = Publisher.all
     # @authors = Author.all
