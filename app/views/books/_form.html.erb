@@ -45,6 +45,13 @@
   </div>
 
   <div class='form-group'>
+    <label class='control-label col-md-3'>Book cover</label>
+    <div class='col-md-9'>
+      <%= f.file_field :book_cover, placeholder: 'Book cover', class: 'form-control', hide_label: true %>
+    </div>
+  </div>
+
+  <div class='form-group'>
     <label class='control-label col-md-3'>Authors</label>
     <div class='col-md-9'>
       <%= f.collection_check_boxes :author_ids, @authors, :id, :full_name, class: 'form-control', hide_label: true %>
