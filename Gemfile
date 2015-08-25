@@ -25,6 +25,10 @@ gem 'bootstrap-sass', '~>3.3.4.1'
 gem 'bootstrap_form'
 gem 'jquery-ui-rails', '5.0.5'
 
+gem 'carrierwave-dropbox'
+gem 'mini_magick'
+gem 'figaro'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
