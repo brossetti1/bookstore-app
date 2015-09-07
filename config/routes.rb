@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :authors
   resources :books
   resources :users, only: [:index, :show, :new, :create]
+  resource :session
 
 end
