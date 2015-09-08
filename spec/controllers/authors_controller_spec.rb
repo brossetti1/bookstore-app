@@ -1,11 +1,31 @@
 require 'rails_helper'
+require 'support/macros'
 
 RSpec.describe AuthorsController, :type => :controller do
-  describe "GET #index" do
-    it "returns a successful http request stutus code" do
-      get :index
+  let(:admin) { Fabricate(:admin) }
+  let(:user) { Fabricate(:user) }
 
-      expect(response).to have_http_status(:success)
+  before { set_current_admin admin }
+
+  describe "GET #index" do
+    context "guest users" do
+      before { clear_current_user }
+
+      it "redirects to the signin page for un-authenticated users" do
+        get :index
+        expect(response).to redirect_to signin_path
+      end
+    end
+
+    context "non-admin users" do
+    end
+
+    context "admin users" do
+      it "returns a successful http request stutus code" do
+        get :index
+
+        expect(response).to have_http_status(:success)
+      end
     end
   end
 
