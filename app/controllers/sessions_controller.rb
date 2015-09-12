@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    #require 'pry';binding.pry
     redirect_to root_path if current_user
   end
 
@@ -7,7 +8,12 @@ class SessionsController < ApplicationController
     if user = User.authenticate(params[:email], params[:password])
       session[:user_id] = user.id
       flash[:success] = "Sign in successful"
-      redirect_to root_path
+      if session[:intented_destination]
+        redirect_to session[:intented_destination]
+        session[:intented_destination] = nil
+      else
+        redirect_to root_path
+      end
     else
       flash.now[:danger] = "Invalid email/password combination"
       render :new
