@@ -1,4 +1,6 @@
 class PublishersController < ApplicationController
+  before_action :require_signin
+  before_action :require_admin
   before_action :set_publisher, except: [:index, :new, :create]
 
   def index

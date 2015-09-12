@@ -1,12 +1,31 @@
 require 'rails_helper'
+require 'support/macros'
+require 'support/shared_examples'
 
 RSpec.describe UsersController, :type => :controller do
   describe "GET #show" do
-    it "returns a successful http request status code" do
-      user = Fabricate(:user)
+    let(:admin) { Fabricate(:admin) }
+    let(:user) { Fabricate(:user) }
 
-      get :show, id: user.id
-      expect(response).to have_http_status(:success)
+    before { set_current_admin admin }
+
+    context "guest users" do
+      it_behaves_like "requires sign in" do
+        let(:action) { get :show, id: user.id }
+      end
+    end
+
+    context "non-admin users" do
+      it_behaves_like "requires admin" do
+        let(:action) { get :show, id: user.id }
+      end
+    end
+
+    context "admin users" do
+      it "returns a successful http request status code" do
+        get :show, id: user.id
+        expect(response).to have_http_status(:success)
+      end
     end
   end
 
@@ -52,5 +71,5 @@ RSpec.describe UsersController, :type => :controller do
       end
     end
   end
-  
+
 end
