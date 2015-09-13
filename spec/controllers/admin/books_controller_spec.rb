@@ -83,7 +83,7 @@ RSpec.describe Admin::BooksController, :type => :controller do
         end
 
         it "redirects to the show action" do
-          expect(response).to redirect_to book_path(Book.first)
+          expect(response).to redirect_to admin_book_path(Book.first)
         end
 
         it "sets the success flash message" do
@@ -147,7 +147,7 @@ RSpec.describe Admin::BooksController, :type => :controller do
         end
 
         it "redirects to the show action" do
-          expect(response).to redirect_to book_path(Book.first)
+          expect(response).to redirect_to admin_book_path(Book.first)
         end
 
         it "sets the success flash message" do
@@ -200,7 +200,7 @@ RSpec.describe Admin::BooksController, :type => :controller do
       end
 
       it 'redirects to the index page' do
-        expect(response).to redirect_to books_path
+        expect(response).to redirect_to admin_books_path
       end
     end
   end

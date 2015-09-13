@@ -97,7 +97,7 @@ RSpec.describe Admin::PublishersController, :type => :controller do
         end
 
         it "redirects to the show action" do
-          expect(response).to redirect_to publisher_path(Publisher.first)
+          expect(response).to redirect_to admin_publisher_path(Publisher.first)
         end
 
         it "sets the success flash message" do
@@ -164,7 +164,7 @@ RSpec.describe Admin::PublishersController, :type => :controller do
         end
 
         it "redirects to the show action" do
-          expect(response).to redirect_to publisher_path(Publisher.first)
+          expect(response).to redirect_to admin_publisher_path(Publisher.first)
         end
 
         it "sets the success flash message" do
@@ -221,7 +221,7 @@ RSpec.describe Admin::PublishersController, :type => :controller do
       end
 
       it 'redirects to the index page' do
-        expect(response).to redirect_to publishers_path
+        expect(response).to redirect_to admin_publishers_path
       end
     end
   end

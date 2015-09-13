@@ -1,7 +1,13 @@
 require 'rails_helper'
+require 'support/macros'
 
 RSpec.feature 'Editing Publishers' do
   let!(:publisher) { Fabricate(:publisher) }
+  let(:admin) { Fabricate(:admin) }
+
+  before do
+    sign_in_as admin
+  end
 
   scenario 'successfully editing an publisher' do
     visit root_path

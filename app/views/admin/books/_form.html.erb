@@ -1,4 +1,4 @@
-<%= bootstrap_form_for(@book, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+<%= bootstrap_form_for([:admin, @book], :html => {class: "form-horizontal", role: "form"}) do |f| %>
   <div class='form-group'>
     <label class='control-label col-md-3'>Title</label>
     <div class='col-md-9'>
