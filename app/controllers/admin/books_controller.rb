@@ -1,4 +1,4 @@
-class BooksController < ApplicationController
+class Admin::BooksController < Admin::BaseController
   before_action :require_signin
   before_action :require_admin
   before_action :set_book, except: [:index, :new, :create]

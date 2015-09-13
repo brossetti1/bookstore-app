@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'support/macros'
 require 'support/shared_examples'
 
-RSpec.describe AuthorsController, :type => :controller do
+RSpec.describe Admin::AuthorsController, :type => :controller do
   let(:admin) { Fabricate(:admin) }
 
   before { set_current_admin admin }
