@@ -28,4 +28,6 @@ RSpec.feature "Creating users" do
 
     expect(page).to have_content('User has not been created')
   end
+
+  
 end
