@@ -12,6 +12,14 @@
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li class="active"><%= link_to "Home", root_path %></li>
+
+          <%= form_tag(search_catalogs_path, class: "navbar-form navbar-left", role: "search") do %>
+            <div class="form-group">
+              <%= text_field_tag :search_word, nil, placeholder: "Search for books here", class: "form-control" %>
+            </div>
+            <%= submit_tag "Search", class: "btn btn-default" %>
+          <% end %>
+          
           <li><%= link_to "Catalogs", catalogs_path %></li>
           <% if current_user && current_user.admin? %>
           <li><%= link_to "Authors", admin_authors_path %></li>
