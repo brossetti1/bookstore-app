@@ -1,0 +1,3 @@
+Fabricator(:cart) do
+  
+end
