@@ -1,1 +1,22 @@
-<h1>Catalog Index Page</h1>
+
+<section>
+  <header>
+    <% if @books.empty? %>
+      <h3>No Books Entered</h3>
+    <% else %>
+      <h3 class="titles text-center">All Books</h3>
+    <% end %>
+  </header>
+
+  <% @books.each do |book| %>
+    <p class='book-title'>
+      <%= link_to book.title, catalog_path(book) %><br>
+      <span class='price-class'><%= number_to_currency(book.price) %></span>
+    </p>
+    <p class='book-image'><%= image_tag(book.book_cover_url(:thumb)) if book.book_cover? %></p>
+    <div>
+      <hr>
+    </div>
+  <% end %>
+  <br>
+</section>

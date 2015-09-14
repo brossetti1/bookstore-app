@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'base/index'
     get '/add_publisher', to: 'publishers#new', as: 'add_publisher'
-    
+
     resources :authors
     resources :books
     resources :publishers, except: [:new]
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :new, :create]
   resource :session
+  resources :catalogs, only: [:index, :show]
 
 
 end
