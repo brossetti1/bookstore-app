@@ -87,6 +87,10 @@
       <div class='col-md-10'>
         <hr>
       </div>
+
+      <div class="col-md-10">
+        <%= button_to "Add to cart", cart_items_path(book_id: @book.id), class: 'btn btn-success' %>
+      </div>
     </div>
   </div>
 </section>
