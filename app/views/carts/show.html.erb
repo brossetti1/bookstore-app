@@ -5,15 +5,15 @@
         <h3 class='titles text-center' id='book-show'>Your Shopping Cart</h3>
       </header>
 
-      <% @cart.cart_items.each do |item|>
-        <%= item.quantity %>&times;<%= item.book.title %><%= "#{number_to_currency(item.line_total)}" %><br>
+      <% @cart.cart_items.each do |item| %>
+        <%= item.quantity %>&times;<%= item.book.title %><%= number_to_currency(item.line_total) %><br>
       <% end %>
       <hr>
 
       <strong>Total: </strong><%= number_to_currency(@cart.total_sale) %>
 
       <%= button_to "Clear cart", cart_path(@cart), method: :delete,
-          data: { confirm: "Are you sure?"}, class: "btn btn-danger" %>   
+          data: { confirm: "Are you sure?"}, class: "btn btn-danger" %>
     </div>
   </div>
 </section>
