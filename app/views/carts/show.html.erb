@@ -13,7 +13,7 @@
       <strong>Total: </strong><%= number_to_currency(@cart.total_sale) %>
 
       <%= button_to "Clear cart", cart_path(@cart), method: :delete,
-          data: { confirm: "Are you sure?"}, class: "btn btn-danger" %>
+          data: { confirm: "Are you sure?"}, class: "btn btn-danger", remote: true %>
     </div>
   </div>
 </section>
