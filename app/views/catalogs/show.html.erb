@@ -2,7 +2,7 @@
   <div class='row'>
     <div class='col-md-12'>
       <header class='col-md-10'>
-        <h3 class='titles' id='book-show'><%= "#{@book.title}" %>'s Details</h3>
+        <h3 class='titles text-center' id='book-show'><%= "#{@book.title}" %>'s Details</h3>
       </header>
       <div class='col-md-10'>
         <div class='col-md-3'>
@@ -89,7 +89,7 @@
       </div>
 
       <div class="col-md-10">
-        <%= button_to "Add to cart", cart_items_path(book_id: @book.id), class: 'btn btn-success' %>
+        <%= button_to "Add to cart", cart_items_path(book_id: @book.id), remote: true, class: 'btn btn-success' %>
       </div>
     </div>
   </div>
