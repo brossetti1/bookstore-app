@@ -1,9 +1,9 @@
 <article>
   <div class="row">
     <% @books.each do |book| %>
-      <label class="col-md-9"><%= link_to book.title, book %></label>
+      <label class="col-md-9"><%= link_to book.title, catalog_path(book) %></label>
       <div class="col-md-4">
-        <%= link_to image_tag(book.book_cover_url(:thumb)), book %>
+        <%= link_to image_tag(book.book_cover_url(:thumb)), catalog_path(book) %>
       </div>
       <hr class="col-md-9"
     <% end %>
