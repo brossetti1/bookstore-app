@@ -1,7 +1,7 @@
 class CatalogsController < ApplicationController
   before_action :set_cart_if_session, except: [:search]
   def index
-    @books = Book.all
+    @books = Book.paginate(:page => params[:page], :per_page => 2)
   end
 
   def show
