@@ -44,10 +44,10 @@ RSpec.describe UsersController, :type => :controller do
         expect(User.count).to eq(1)
       end
 
-      it "redirects to the user show action" do
+      it "redirects to the signin page" do
         post :create, user: Fabricate.attributes_for(:user)
 
-        expect(response).to redirect_to user_path(User.last)
+        expect(response).to redirect_to signin_path
       end
 
       it "sets the success flash message" do
