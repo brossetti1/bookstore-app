@@ -1,0 +1,18 @@
+<html>
+  <head></head>
+  <body>
+    Dear <%= @customer.full_name %><br>
+
+    <p>Thank you for the book order. Please find below the details of your order.</p>
+
+    <% @order.order_items.each do |item| %>
+      <p><%= item.quantity %>&nbsp; &times;&nbsp; <%= item.book.title %>&nbsp;
+      <%= amount("#{item.line_total}") %></p>
+    <% end %>
+
+    <p>Total order: <%= amount(@order.order_total) %></p><br>
+
+    <p>Yours faithfully,</p><br>
+    Bookstore Sales Team
+  </body>
+</html>
