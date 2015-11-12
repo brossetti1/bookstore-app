@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :addresses
+  has_many :orders
 
   has_secure_password
   accepts_nested_attributes_for :addresses
