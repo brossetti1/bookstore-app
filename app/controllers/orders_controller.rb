@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :set_cart
 
   def new
-    order = Order.new
+    @order = Order.new
   end
 
   def create
@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
     end
     redirect_to root_path
   end
-  
+
 
 private
   def transfer_cart_items
