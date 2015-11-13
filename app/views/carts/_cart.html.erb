@@ -13,12 +13,12 @@
         <strong>Total: </strong><%= number_to_currency(cart.total_sale) || number_to_currency(0) %>
       </div>
       <div class="row">
-        <div id='clear-cart-btn' class="col-md-4">
+        <div id='clear-cart-btn' class="col-md-5">
           <%= button_to "Clear cart", cart_path(cart), method: :delete,
             data: { confirm: "Are you sure?"}, class: "btn btn-primary" %>
         </div>
 
-        <div id="checkout-btn" class="col-md-4">
+        <div id="checkout-btn" class="col-md-5">
           <%= button_to "Checkout", new_order_path, method: :get,
               class: "btn btn-default", id: "checkout" %>
         </div>
