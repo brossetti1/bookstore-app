@@ -47,4 +47,51 @@ RSpec.describe PasswordResetsController, :type => :controller do
         expect(ActionMailer::Base.deliveries.last.to).to eq([john.email])
       end
   end
+
+  describe "GET #edit" do
+    it "it redirects to the reset password page for invalid token" do
+      get :edit, id: '12345'
+      expect(response).to redirect_to expired_token_path
+    end
+  end
+
+  describe "PUT #update" do
+    context "valid token" do
+      it "updates the user's password" do
+        mary = Fabricate(:user, password: 'password')
+        mary.update(token: '12345')
+        put :update, id: '12345', user: { password: 'password2' }
+        expect(mary.reload.authenticate('password2')).to be_truthy
+      end
+
+      it "redirects to the sign in page" do
+        mary = Fabricate(:user, password: 'password')
+        mary.update(token: '12345')
+        put :update, id: '12345', user: { password: 'password2' }
+        expect(response).to redirect_to signin_path
+      end
+
+      it "sets the flash message" do
+        mary = Fabricate(:user, password: 'password')
+        mary.update(token: '12345')
+        put :update, id: '12345', user: { password: 'password2' }
+        expect(flash[:success]).to eq("Password has been changed.")
+      end
+
+      it "regenerates the user token" do
+        mary = Fabricate(:user, password: 'password')
+        mary.update(token: '12345')
+        put :update, id: '12345', user: { password: 'password2' }
+        expect(mary.reload.token).not_to eq("12345")
+      end
+    end
+
+    context "invalid token" do
+      it "redirects to the expired token page" do
+        put :update, id: '12345', password: 'password'
+        expect(response).to redirect_to expired_token_path
+      end
+    end
+  end
+
 end
