@@ -20,7 +20,7 @@ RSpec.feature 'Creating Orders' do
     fill_in 'Credit Card Number', with: '4242424242424242'
     fill_in 'Security Code', with: '123'
     select '10 - October', from: "date_month"
-    select '2016', from: "date_year"
+    select '2023', from: "date_year"
     click_button 'Create Order'
 
     expect(page).to have_content('Order has been created')

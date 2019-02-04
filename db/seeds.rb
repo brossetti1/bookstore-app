@@ -28,13 +28,13 @@ Book.create!(title: 'Gnuplot in Action', isbn: '978-1-933-98839-9',
              publisher_id: 4,
              book_cover: File.open(File.join(Rails.root, 'app/assets/images/gnuplot.jpg')))
 
- Book.create!(title: 'The Rails 3 Way', isbn: '978-0-321-60166-7',
-              page_count: 708, price: 49.99, description: 'A authoritative book on Rails 3',
-              published_at: '2011-08-22', publisher_id: 2,
-              book_cover: File.open(File.join(Rails.root, 'app/assets/images/rails3_way.jpg')))
+Book.create!(title: 'The Rails 3 Way', isbn: '978-0-321-60166-7',
+            page_count: 708, price: 49.99, description: 'A authoritative book on Rails 3',
+            published_at: '2011-08-22', publisher_id: 2,
+            book_cover: File.open(File.join(Rails.root, 'app/assets/images/rails3_way.jpg')))
 
-  Book.create!(title: 'Practical Database Programming with Java', isbn: '978-0-470-88940-4',
-               page_count: 919, price: 120.37, description: 'Covers the Practical considerations
-               and applications in database Programming using Java Netbeans IDE, JSP, JSF and
-               Java Beans', published_at: '2011-11-04', publisher_id: 1,
-               book_cover: File.open(File.join(Rails.root, 'app/assets/images/practical_db.jpg')))
+Book.create!(title: 'Practical Database Programming with Java', isbn: '978-0-470-88940-4',
+             page_count: 919, price: 120.37, description: 'Covers the Practical considerations
+             and applications in database Programming using Java Netbeans IDE, JSP, JSF and
+             Java Beans', published_at: '2011-11-04', publisher_id: 1,
+             book_cover: File.open(File.join(Rails.root, 'app/assets/images/practical_db.jpg')))

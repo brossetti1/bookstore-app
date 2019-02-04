@@ -1,0 +1,42 @@
+https://www.dropbox.com/developers/ -> create app
+
+
+36) Application files
+*history | grep
+git log
+git diff
+git checkout ${branch}
+
+37) creating a new rails project
+rails new help
+folder structure:
+app:
+  - assets
+  - controllers
+  - helpers
+  - models
+  - views
+
+config:
+  - initializers
+  - environments
+  - yml configuration files
+  - locales
+db:
+  - migrate -> migration files
+  - schema file
+  - seeds
+lib:
+  - files that are outside the scope of your app
+
+setting up remote:
+  - git remote -v
+  - git remote add origin ${url}
+  - git push -u origin master
+
+
+38) Test Driven Development
+ - refresher
+ - installing capybara and rspec
+  - checkout branch
+  - rails g rspec:install
